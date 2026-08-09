@@ -1,0 +1,14 @@
+package com.example.CampusHub.course;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import java.util.List;
+import java.util.Optional;
+
+public interface courseRepository extends JpaRepository<Course, Long> {
+    Optional<Course> findByCode(String code);
+
+    List<Course> findByDepartmentIgnoreCase(String department);
+
+    boolean existsByCode(String code);
+}
